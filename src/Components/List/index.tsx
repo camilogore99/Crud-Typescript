@@ -4,9 +4,10 @@ interface Props {
 	arrayInfo: any[]
 	deleteElemet: Function
 	setDataEdit: Function
+	setFlagModal: Function
 }
 
-export const List = ({ arrayInfo, deleteElemet, setDataEdit }: Props) => {
+export const List = ({ arrayInfo, deleteElemet, setDataEdit, setFlagModal }: Props) => {
 	return (
 		<div>
 			<h2>Lista de datos Agregados</h2>
@@ -27,7 +28,14 @@ export const List = ({ arrayInfo, deleteElemet, setDataEdit }: Props) => {
 							<td>{data.medals}</td>
 							<td>{data.players}</td>
 							<td>
-								<button onClick={() => deleteElemet(data.id)}>Eliminar</button>
+								<button
+									onClick={() => {
+										setFlagModal(true)
+										// deleteElemet(data.id)
+									}}
+								>
+									Eliminar
+								</button>
 							</td>
 							<td>
 								<button
